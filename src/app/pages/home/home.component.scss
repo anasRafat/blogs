@@ -1,0 +1,20 @@
+@import '../../../colors';
+
+.bg{
+  background-image: url('../../../assets/Background\ pattern.png') ;
+  background-repeat: no-repeat;
+  background-size: contain;
+  .small_div{
+    background-color: $background;
+  }
+  .input-group-text{
+    background-color:white !important;
+    border-right: none !important;
+    color: $gray;
+    padding-right: 0px !important;
+  }
+  .border_l{
+    border-left: none;
+  }
+
+}

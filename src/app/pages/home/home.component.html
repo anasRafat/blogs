@@ -1,0 +1,50 @@
+<div *ngIf="blogsData" class="mb-5 pb-5 bg">
+  <div
+    class="d-flex flex-column justify-content-center align-items-center py-5"
+  >
+    <div class="small_div main_color rounded px-2 rounded-3">
+      <span class="text-lowercase">Our blog</span>
+    </div>
+    <h1 class="sec_color py-2">Resources and insights</h1>
+    <p class="main_color fs-5 text-center">
+      The latest industry news, interviews, technologies, and resources.
+    </p>
+    <div class="row col-md-3 col-sm-6 col-xs-10">
+      <div class="input-group">
+        <i class="input-group-text fa fa-search d-flex"></i>
+        <input
+          type="text"
+          [(ngModel)]="text_search"
+          class="form-control border_l"
+          placeholder="Search"
+        />
+      </div>
+    </div>
+  </div>
+  <app-not-found *ngIf="!have_data"></app-not-found>
+  <div
+    *ngIf="!have_data"
+    class="d-flex justify-content-center align-items-center"
+  >
+    <button (click)="retry()" class="btn btn-primary px-2">Retry</button>
+  </div>
+  <div *ngIf="have_data" class="container">
+    <div class="row">
+      <app-card
+        *ngFor="let blog of blogsData | search : text_search"
+        [blog]="blog"
+        class="col-md-4 col-sm-6 col-xs-12"
+      ></app-card>
+    </div>
+    <div class="d-flex justify-content-center my-5">
+      <button
+        [disabled]="!have_more"
+        (click)="load_more()"
+        class="small_div btn"
+      >
+        <img src="../../../assets/arrow-down.png" /> Load more
+      </button>
+    </div>
+  </div>
+</div>
+<app-spinner *ngIf="!blogsData"></app-spinner>

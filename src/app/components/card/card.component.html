@@ -1,0 +1,33 @@
+<div
+  class="card d-flex flex-column p-3 shadow rounded-0 mx-1 my-3 justify-content-between"
+>
+  <img *ngIf="blog.cover_image" src="{{ blog.cover_image }}" />
+  <img
+    *ngIf="!blog.cover_image"
+    class="not_found"
+    src="../../../assets/icon-image-not-found-free-vector.jpg"
+  />
+
+  <h6 class="main_color mt-3 pt-3">
+    {{ blog.type_of }}
+  </h6>
+  <div class="d-flex flex-row justify-content-between">
+    <h4>{{ blog.title }}</h4>
+    <div>
+      <img src="../../../assets/Icon wrap.png" />
+    </div>
+  </div>
+
+  <p class="gray py-2">
+    {{ blog.description }}
+  </p>
+  <div class="d-flex flex-row pt-1">
+    <div class="col-2">
+      <img class="col-12 rounded-circle" src="{{ blog.user.profile_image }}" />
+    </div>
+    <div class="d-flex flex-column ms-2">
+      <h6 class="m-0">{{ blog.user.name }}</h6>
+      <p class="gray">{{ blog.readable_publish_date }}</p>
+    </div>
+  </div>
+</div>
